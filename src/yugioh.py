@@ -1,0 +1,25 @@
+import csv
+from datetime import datetime
+from collections import namedtuple
+Carta = namedtuple('Carta','Name,Type,Level,Race,Attribute,ATK,DEF,LCK,Date')
+
+def intear(num):
+    try:
+        num = int(num)
+    except ValueError:
+        num = 0
+
+def lee_cartas(archivo):
+    cartas = []
+    with open(archivo, encoding='utf-8') as f:
+        lector=csv.reader(f)
+        next(lector)
+        for nombre,tipo,nivel,raza,atributo,ataque,defensa,suerte,fecha in lector:
+            nivel = intear(nivel)
+            ataque = intear(ataque)
+            defensa = intear(defensa)
+            suerte = float(suerte)
+            fecha = datetime.strptime(fecha,'%d/%m/%Y')
+            carta = Carta(nombre,tipo,nivel,raza,atributo,ataque,defensa,suerte,fecha)
+            cartas.append(carta)
+        return cartas
