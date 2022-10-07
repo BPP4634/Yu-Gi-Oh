@@ -40,22 +40,23 @@ Para el proyecto, ha sido definida una tupla con nombre:
 Y los tipos de los campos son, respectivamente: string, string, int, string, string, int, int, float, datetime.date y boolean.
 
 ## Funciones implementadas
-Añade aquí descripciones genéricas de las funciones, que luego debes acompañar con comentarios de tipo documentación en el código
+
+A continuación, se mostrarán las funciones implementadas al código, clasificadas según el módulo en el que aparecen.
 
 ### Módulo yugioh
 
-* **<funcion 1>**: Descripción de la función 1.
-* **<funcion 2>**: Descripción de la función 2.
-* ...
+* **lee_cartas(archivo)**: lee los datos del dataset y devuelve una lista de tuplas conteniéndolos. Esta función hace uso de otras funciones a su vez, las cuales se encuentran en el módulo 'yugioh_support.py'.
 
-### \<test modulo 1\>
+### Módulo yugioh_test
 
-* **<test funcion 1>**: Descripción de las pruebas realizadas a la función 1.
-* **<test funcion 2>**: Descripción de las pruebas realizadas a la función 2.
-* ...
-* 
-### \<modulo 2\>
+* **main()**: función que invoca a todas las funciones que deban ser probadas:
+  * **test_lee_cartas(archivo)**: test de la función 'lee_cartas(archivo)'.
 
-* **<funcion 1>**: Descripción de la función 1.
-* **<funcion 2>**: Descripción de la función 2.
-* ...
+### Módulo yugioh_support
+
+Este módulo contiene funciones auxiliares (por ejemplo, parsers).
+
+* **monster(atk)**: En función de si la carta tiene puntos de ataque o no, determinará si es una carta de tipo monstruo o no (respectivamente).*
+* **intear(num)**: tras introducirse una cadena, la transforma en un objeto de tipo int. En el caso de que la carta no disponga de dicho dato, le dará el valor 0.
+
+*Si bien es cierto que lo lógico sería hacer una función que busque si la palabra "monster" se encuentra en el dato "type", es más sencillo comprobar si ataque es igual o distinto de 0 (el cual es uno de los tres datos que, como se mencionó anteriormente, solo tienen los monstruos).
