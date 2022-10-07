@@ -20,17 +20,18 @@ En el dataset, cada fila representan los datos de cada carta. Está compuesto po
 
 * **Name**: de tipo string, representa el nombre de la carta.
 * **Type**: de tipo tring, representa el tipo de carta.
-* **Level**: de tipo int, representa el nivel de la carta.
-* **Race**: de tipo string, representa la raza del ser invocado con la carta.
-* **Attribute**: de tipo string, representa los atributos de la carta.
-* **Atk**: de tipo int, representa los puntos de ataque de la carta.
-* **Def**: de tipo int, representa los puntos de defensa de la carta
-* **Lck**: de tipo float, representa los puntos de suerte de la carta.
+* **Level**: de tipo int, representa el nivel del monstruo invocado con la carta.
+* **Race**: de tipo string, representa la raza del monstruo invocado con la carta.
+* **Attribute**: de tipo string, representa los atributos del monstruo invocado con la carta.
+* **Atk**: de tipo int, representa los puntos de ataque del monstruo invocado con la carta.
+* **Def**: de tipo int, representa los puntos de defensa del monstruo invocado con la carta.
+* **Lck**: de tipo float, representa los puntos de suerte del monstruo invocado con la carta.
 * **Release_date**: de tipo datetime, representa la fecha de lanzamiento de la carta.
 
 ## Tipos implementados
 
-Descrbe aquí la o las namedtuple que defines en tu proyecto.
+Para el proyecto, ha sido definida una tupla con nombre:
+
 
 ## Funciones implementadas
 Añade aquí descripciones genéricas de las funciones, que luego debes acompañar con comentarios de tipo documentación en el código
