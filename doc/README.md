@@ -28,15 +28,21 @@ En el dataset, cada fila representan los datos de cada carta. Está compuesto po
 * **Lck**: de tipo float, representa los puntos de suerte del monstruo invocado con la carta.
 * **Release_date**: de tipo datetime, representa la fecha de lanzamiento de la carta.
 
+No todas las cartas disponen de todos los datos mostrados. Las cartas de tipo monstruo (sean normales o especiales) tienen nivel, ataque y defensa, mientras que las demás (las mágicas y las de trampa) no. Esta distinción servirá para definir un nuevo valor:
+
+* **Monster**, de tipo boolean. Representa si es una carta de tipo monstruo o no.
+
 ## Tipos implementados
 
 Para el proyecto, ha sido definida una tupla con nombre:
+'Carta = namedtuple('Carta','Name,Type,Level,Race,Attribute,ATK,DEF,LCK,Date,Monster')'
 
+Y los tipos de los campos son, respectivamente: string, string, int, string, string, int, int, float, datetime.date y boolean.
 
 ## Funciones implementadas
 Añade aquí descripciones genéricas de las funciones, que luego debes acompañar con comentarios de tipo documentación en el código
 
-### \<modulo 1\>
+### Módulo yugioh
 
 * **<funcion 1>**: Descripción de la función 1.
 * **<funcion 2>**: Descripción de la función 2.
