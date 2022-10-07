@@ -1,14 +1,14 @@
 # Proyecto del Primer Cuatrimestre Fundamentos de Programación (Curso  \<XX\>/\<YY\>)
-Autor/a: \<Beatriz Gutiérrez Arazo\>   uvus:\<BPP4634\>
+Autor/a: Beatriz Gutiérrez Arazo   uvus:BPP4634
 
-Aquí debes añadir la descripción del dataset y un enunciado del dominio del proyecto.
+El objetivo de este proyecto consiste en trabajar con un dataset sobre cartas de Yu-Gi-Oh (descargado de Kaggle en https://www.kaggle.com/datasets/tathor/yugioh-trading-cards-dataset). El dataset original constaba de 7 columnas: 4 con datos de tipo string y 3 con datos de tipo int. Por ello, han sido añadidas dos nuevas columnas: una de tipo float ("LCK", que vendría de "Luck" y representaría puntos de suerte para cada carta) y la otra de tipo datetime ("Release date", la cual representaría la fecha de lanzamiento de la carta). Ambas han sido generados de forma aleatoria, en el caso de "LCK" son floats de dos decimales entre 0 y 10, y en el caso de "Release date" son fechas desde el 1 de enero de 1999 (año de lanzamiento de las primeras cartas) hasta el 2020.
 
 
 ## Estructura de las carpetas del proyecto
 
 * **/src**: Contiene los diferentes módulos de Python que conforman el proyecto.
-  * **\<modulo1.py\>**: Describe aquí el módulo principal.
-  * **\<modulo1_test.py\>**: Describe aquí el módulo de pruebas.
+  * **\yugioh.py**: Contiene funciones que trabajan con los datos de las cartas de Yu-Gi-Oh!
+  * **yugioh_test**: Contiene las invocaciones a las funciones escritas en "yugioh.py", con el fin de ejecutarlas y comprobar que funcionen.
   * **\<modulo2.py\>**: Añade descripciones para el resto de módulos que pueda tener tu proyecto. Por ejemplo, sería conveniente tener un módulo separado con funciones genéricas para dibujar gráficas y/o otro con funciones genéricas de conversión de tipos. 
 * **/data**: Contiene el dataset o datasets del proyecto
     * **\<dataset1.csv\>**: Añade una descripción genérica del dataset.
@@ -16,13 +16,17 @@ Aquí debes añadir la descripción del dataset y un enunciado del dominio del p
     
 ## Estructura del *dataset*
 
-Aquí debes describir la estructura del dataset explicando qué representan los datos que contiene y la descripción de cada una de las columnas.
+En el dataset, cada fila representan los datos de cada carta. Está compuesto por 9 columnas, con la siguiente descripción:
 
-El dataset está compuesto por \<N\> columnas, con la siguiente descripción:
-
-* **\<columna 1>**: de tipo \<tipo\>, representa....
-* **\<columna 2>**: de tipo \<tipo\>, representa....
-....
+* **Name**: de tipo string, representa el nombre de la carta.
+* **Type**: de tipo tring, representa el tipo de carta.
+* **Level**: de tipo int, representa el nivel de la carta.
+* **Race**: de tipo string, representa la raza del ser invocado con la carta.
+* **Attribute**: de tipo string, representa los atributos de la carta.
+* **Atk**: de tipo int, representa los puntos de ataque de la carta.
+* **Def**: de tipo int, representa los puntos de defensa de la carta
+* **Lck**: de tipo float, representa los puntos de suerte de la carta.
+* **Release_date**: de tipo datetime, representa la fecha de lanzamiento de la carta.
 
 ## Tipos implementados
 
