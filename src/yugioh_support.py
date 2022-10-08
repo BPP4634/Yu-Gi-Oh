@@ -1,10 +1,8 @@
 def monster(atk):
-    if atk!= None:
-        monstruo = True
-        return monstruo
+    if atk != None:
+        return True
     else:
-        monstruo = False
-        return monstruo
+        return False
 
 def intear(num):
     try:

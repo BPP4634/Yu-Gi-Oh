@@ -2,8 +2,8 @@ from yugioh import *
 
 def main():
       test_lee_cartas('./data/card_data_FULL.csv')
-# Test de la función lee_cartas
 
+# Test de la función lee_cartas
 def test_lee_cartas(archivo):
       Cartas = lee_cartas(archivo)
       print(len(Cartas))

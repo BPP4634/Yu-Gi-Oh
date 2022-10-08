@@ -15,7 +15,7 @@ def lee_cartas(archivo):
             ataque = intear(ataque)
             defensa = intear(defensa)
             suerte = float(suerte)
-            fecha = datetime.strptime(fecha,'%d/%m/%Y')
+            fecha = datetime.strptime(fecha,'%d/%m/%Y').date()
             monstruo = monster(ataque)
             carta = Carta(nombre,tipo,nivel,raza,atributo,ataque,defensa,suerte,fecha,monstruo)
             cartas.append(carta)
