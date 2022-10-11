@@ -29,3 +29,11 @@ def lee_cartas(archivo):
             cartas.append(carta)
         #Como resultado, la función devuelve dicha lista.
         return cartas
+
+def numero_de_atributos(Cartas):
+    atributos= set()
+    for carta in Cartas:
+        if atributos!='':
+            atributos.add(carta.Attribute)
+    atributos.remove('')
+    return atributos, len(atributos)
