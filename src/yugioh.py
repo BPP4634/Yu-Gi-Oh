@@ -37,3 +37,9 @@ def numero_de_atributos(Cartas):
             atributos.add(carta.Attribute)
     atributos.remove('')
     return atributos, len(atributos)
+
+def existe_cartas_mayores_que_ataque_dado(Cartas, ataque):
+    for carta in Cartas:
+        if carta.ATK > ataque:
+            return True
+    return False
