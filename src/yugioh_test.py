@@ -5,6 +5,7 @@ def main():
       test_numero_de_atributos(Cartas)
       test_existe_cartas_mayores_que_ataque_dado(Cartas,4000)
       test_valor_maximo_defensa_en_atributos_dados(Cartas, ('DARK','EART','FIRE'))
+      test_calcula_n_cartas_maximas_suertes_de_raza(Cartas,'Zombie')
 
 # Test de la función lee_cartas
 def test_lee_cartas(archivo):
@@ -31,6 +32,10 @@ def test_existe_cartas_mayores_que_ataque_dado(Cartas, atk):
 def test_valor_maximo_defensa_en_atributos_dados(Cartas, atributos):
       vmdead = valor_maximo_defensa_en_atributos_dados(Cartas, atributos)
       print(vmdead)
+
+def test_calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza,n=10):
+      cmsdr = calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza,n)
+      print(cmsdr[:n])
 
 if __name__ == '__main__':
       main()
