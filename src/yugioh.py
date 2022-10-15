@@ -53,7 +53,7 @@ def valor_maximo_defensa_en_atributos_dados(Cartas, atributos):
     cartasatributo = sorted(cartasatributo, key=lambda at : at[5], reverse=True)
     return cartasatributo[0]
 
-def calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza,n=10):
+def calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza):
     carmaxsuer = []
     for carta in Cartas:
         if carta.Race == raza:
