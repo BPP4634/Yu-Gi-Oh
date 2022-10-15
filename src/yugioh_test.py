@@ -4,6 +4,7 @@ def main():
       Cartas = test_lee_cartas('./data/card_data_FULL.csv')
       test_numero_de_atributos(Cartas)
       test_existe_cartas_mayores_que_ataque_dado(Cartas,4000)
+      test_valor_maximo_defensa_en_atributos_dados(Cartas, ('DARK','EART','FIRE'))
 
 # Test de la función lee_cartas
 def test_lee_cartas(archivo):
@@ -27,6 +28,9 @@ def test_existe_cartas_mayores_que_ataque_dado(Cartas, atk):
       tecmqad = existe_cartas_mayores_que_ataque_dado(Cartas,atk)
       print(tecmqad)
 
+def test_valor_maximo_defensa_en_atributos_dados(Cartas, atributos):
+      vmdead = valor_maximo_defensa_en_atributos_dados(Cartas, atributos)
+      print(vmdead)
 
 if __name__ == '__main__':
       main()

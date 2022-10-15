@@ -43,3 +43,25 @@ def existe_cartas_mayores_que_ataque_dado(Cartas, ataque):
         if carta.ATK > ataque:
             return True
     return False
+
+def valor_maximo_defensa_en_atributos_dados(Cartas, atributos):
+    cartasatributo = []
+    for carta in Cartas:
+        for atributo in atributos:
+            if carta.Attribute == atributo:
+                cartasatributo.append(carta)
+    cartasatributo = sorted(cartasatributo, key=lambda at : at[6], reverse=True)
+    return cartasatributo[0]
+
+def calcula_n_cartas_maximas_suertes_de_raza():
+    pass
+'''
+    Bloque II: Implementar, documentar y probar DOS funciones que trabajen sobre el dataset y respondan a preguntas interesantes. La primera se debe escoger entre los tipos (5) y (6), la segunda debe ser de tipo (7) u (8):
+
+7. Función que obtenga una lista con n tuplas ordenadas de mayor a menor (o de menor a mayor) por una
+propiedad determinada de entre las que cumplan una condición. Ejemplo: calcula_n_registros_maximos_censos
+de_pais
+8. Función que devuelva un diccionario que permita agrupar por una propiedad, en el que los valores sean una
+lista o un conjunto con las tuplas que tienen el mismo valor de esa propiedad. Ejemplos: agrupar_registros_por
+pais.
+             Modificar el test para comprobar la funcionalidad añadida.'''
