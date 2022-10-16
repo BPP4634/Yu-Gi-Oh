@@ -32,31 +32,42 @@ def lee_cartas(archivo):
 
 def numero_de_atributos(Cartas):
     atributos= set()
+    #Se añade el atributo de cada carta a un conjunto llamado "atributos", de forma que no habrá elementos repetidos
     for carta in Cartas:
-        if atributos!='':
             atributos.add(carta.Attribute)
+    #Se borra " " del conjunto, ya que ha sido añadido porque algunas cartas no tienen dicho valor
     atributos.remove('')
+    #Como resultado, la función devuelve los atributos y cuantos hay.
     return atributos, len(atributos)
 
 def existe_cartas_mayores_que_ataque_dado(Cartas, ataque):
+    #Se comprueba si existe alguna carta con un ataque mayor que el dado
     for carta in Cartas:
         if carta.ATK > ataque:
+            #Devuelve True si existe
             return True
+    #Devuelve False en el caso contrario
     return False
 
 def valor_maximo_defensa_en_atributos_dados(Cartas, atributos):
     cartasatributo = []
+    #Añade cartas a la lista "cartasatributo" cuyo atributo sea igual a uno de los atributos dados
     for carta in Cartas:
         for atributo in atributos:
             if carta.Attribute == atributo:
                 cartasatributo.append(carta)
+    #Ordena las cartas de dicha lista de mayor a menor defensa
     cartasatributo = sorted(cartasatributo, key=lambda at : at[6], reverse=True)
+    #Devuelve la defensa, el nombre y el atributo de la primera carta
     return (cartasatributo[0][6],cartasatributo[0][0],cartasatributo[0][4])
 
 def calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza):
     carmaxsuer = []
+    #Añade a la lista "carmaxsuer" cartas cuya raza sea la misma que la dada
     for carta in Cartas:
         if carta.Race == raza:
             carmaxsuer.append(carta)
+    #Ordena las cartas de dicha lista de mayor a menor suerte
     carmaxsuer = sorted(carmaxsuer, key=lambda lc : lc[7], reverse=True)
+    #Devuelve la lista
     return carmaxsuer
