@@ -40,15 +40,23 @@ A continuación, se mostrarán las funciones implementadas al código, clasifica
 
 ### Módulo yugioh
 
+#### Entrega 1
 * **lee_cartas(archivo)**: lee los datos del dataset y devuelve una lista de tuplas conteniéndolos. Esta función hace uso de la función 'intear(num)' a su vez, la cual se encuentran en el módulo 'yugioh_support.py'.
+#### Entrega 2
+* **numero_de_atributos(Cartas)**: 
+* **existe_cartas_mayores_que_ataque_dado(Cartas, ataque)**: 
+* **valor_maximo_defensa_en_atributos_dados(Cartas, atributos)**: 
+* **calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza)**: 
 
 ### Módulo yugioh_test
 
+#### Entrega 1
 * **main()**: función que invoca a todas las funciones que deban ser probadas:
   * **test_lee_cartas(archivo)**: test de la función 'lee_cartas(archivo)'.
+#### Entrega 2
 
 ### Módulo yugioh_support
 
 Este módulo contiene funciones auxiliares (como, por ejemplo, parsers).
-
+#### Entrega 1
 * **intear(num)**: tras introducirse una cadena, la transforma en un objeto de tipo int. En el caso de que la carta no disponga de dicho dato, le dará el valor "None".

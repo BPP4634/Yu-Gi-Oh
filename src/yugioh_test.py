@@ -18,23 +18,22 @@ def test_lee_cartas(archivo):
 # Test de la función numero_de_atributos
 def test_numero_de_atributos(Cartas):
       att = numero_de_atributos(Cartas)
-      print(att[0])
-      print(att[1])
+      print('Existen', att[1], 'atributos, los cuales son:', att[0])
 
 # Test de la función existe_cartas_mayores_que_ataque_dado
 def test_existe_cartas_mayores_que_ataque_dado(Cartas, atk):
       tecmqad = existe_cartas_mayores_que_ataque_dado(Cartas,atk)
-      print(tecmqad)
+      print('¿Existen cartas con un ataque mayor que ' + str(atk) + '?', tecmqad)
 
 # Test de la función valor_maximo_defensa_en_atributos_dados
 def test_valor_maximo_defensa_en_atributos_dados(Cartas, atributos):
       vmdead = valor_maximo_defensa_en_atributos_dados(Cartas, atributos)
-      print(vmdead)
+      print('El valor máximo del ataque de una carta de los atributos propuestos es ' + str(vmdead[0]) + ', de la carta ' + vmdead[1] + ', cuyo atributo es', vmdead[2])
 
 # Test de la función calcula_n_cartas_maximas_suertes_de_raza
 def test_calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza,n=10):
       cmsdr = calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza)
-      print(cmsdr[:n])
+      print('Las', n, 'cartas de raza', raza, 'con mas suerte son:', cmsdr[:n])
 
 if __name__ == '__main__':
       main()
