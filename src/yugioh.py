@@ -46,13 +46,12 @@ def existe_cartas_mayores_que_ataque_dado(Cartas, ataque):
 
 def valor_maximo_defensa_en_atributos_dados(Cartas, atributos):
     cartasatributo = []
-
     for carta in Cartas:
         for atributo in atributos:
             if carta.Attribute == atributo:
                 cartasatributo.append(carta)
-    cartasatributo = sorted(cartasatributo, key=lambda at : at[5], reverse=True)
-    return (cartasatributo[0][5],cartasatributo[0][0],cartasatributo[0][4])
+    cartasatributo = sorted(cartasatributo, key=lambda at : at[6], reverse=True)
+    return (cartasatributo[0][6],cartasatributo[0][0],cartasatributo[0][4])
 
 def calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza):
     carmaxsuer = []

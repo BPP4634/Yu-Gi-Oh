@@ -43,10 +43,10 @@ A continuación, se mostrarán las funciones implementadas al código, clasifica
 #### Entrega 1
 * **lee_cartas(archivo)**: lee los datos del dataset y devuelve una lista de tuplas conteniéndolos. Esta función hace uso de la función 'intear(num)' a su vez, la cual se encuentran en el módulo 'yugioh_support.py'.
 #### Entrega 2
-* **numero_de_atributos(Cartas)**: 
-* **existe_cartas_mayores_que_ataque_dado(Cartas, ataque)**: 
-* **valor_maximo_defensa_en_atributos_dados(Cartas, atributos)**: 
-* **calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza)**: 
+* **numero_de_atributos(Cartas)**: dada una lista de tuplas de tipo Cartas, devuelve el número de atributos que existen y un conjunto que los contenga.
+* **existe_cartas_mayores_que_ataque_dado(Cartas, ataque)**: dada una lista de tuplas de tipo Cartas y un número, devuelve un valor booleano que será True si el ataque de alguna carta es mayor que el número dado y False en el caso contrario.
+* **valor_maximo_defensa_en_atributos_dados(Cartas, atributos)**: dada una lista de tuplas de tipo Cartas y una lista de atributos, devuelve el nombre de la carta con la mayor defensa, el valor de dicha defensa y su atributo.
+* **calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza,n=10)**: dada una lista de tuplas de tipo Cartas, una raza y un número "n", devuelve las n cartas con más suerte de la raza dada. Si no se introduce un número, "n" tomará por defecto el valor 10.
 
 ### Módulo yugioh_test
 
@@ -54,6 +54,10 @@ A continuación, se mostrarán las funciones implementadas al código, clasifica
 * **main()**: función que invoca a todas las funciones que deban ser probadas:
   * **test_lee_cartas(archivo)**: test de la función 'lee_cartas(archivo)'.
 #### Entrega 2
+  * **test_numero_de_atributos(Cartas)**: test de la función 'numero_de_atributos(Cartas)'.
+  * **test_existe_cartas_mayores_que_ataque_dado(Cartas, ataque)**: test de la función 'existe_cartas_mayores_que_ataque_dado(Cartas, ataque)'.
+  * **test_valor_maximo_defensa_en_atributos_dados(Cartas, atributos)**: test de la función 'valor_maximo_defensa_en_atributos_dados(Cartas, atributos)'.
+  * **test_calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza,n)**: test de la función 'calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza,n=10)'.
 
 ### Módulo yugioh_support
 
