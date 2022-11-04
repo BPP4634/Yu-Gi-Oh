@@ -51,7 +51,7 @@ def existe_cartas_mayores_que_ataque_dado(Cartas, ataque):
 
 def valor_maximo_defensa_en_atributos_dados(Cartas, atributos):
     result = []
-    #Añade cartas a la lista "cartasatributo" cuyo atributo sea igual a uno de los atributos dados
+    #Añade cartas a la lista "result" cuyo atributo sea igual a uno de los atributos dados
     for carta in Cartas:
         if carta.Attribute in atributos:
             result.append(carta)
@@ -62,7 +62,7 @@ def valor_maximo_defensa_en_atributos_dados(Cartas, atributos):
 
 def calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza):
     result = []
-    #Añade a la lista "carmaxsuer" cartas cuya raza sea la misma que la dada
+    #Añade a la lista "result" cartas cuya raza sea la misma que la dada
     for carta in Cartas:
         if carta.Race == raza:
             result.append(carta)
