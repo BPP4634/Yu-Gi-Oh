@@ -18,6 +18,7 @@ def lee_cartas(archivo):
         for nombre,tipo,nivel,raza,atributo,ataque,defensa,suerte,fecha,rareza in lector:
             #Transformación de cada variable al tipo correcto:
             nivel = intear(nivel)
+            atributo = stringear(atributo)
             ataque = intear(ataque)
             defensa = intear(defensa)
             suerte = float(suerte)
@@ -31,13 +32,9 @@ def lee_cartas(archivo):
         return cartas
 
 def numero_de_atributos(cartas):
-    atributos= set()
     #Se añade el atributo de cada carta a un conjunto llamado "atributos", de forma que no habrá elementos
     #repetidos en este
-    for carta in cartas:
-            atributos.add(carta.Attribute)
-    #Se borra " " del conjunto, ya que ha sido añadido porque algunas cartas no tienen dicho valor
-    atributos.remove('')
+    atributos= {carta.Attribute for carta in cartas}
     #Como resultado, la función devuelve cuantos atributos hay y cuales son.
     return len(atributos),atributos
 
@@ -51,23 +48,17 @@ def existe_cartas_mayores_que_ataque_dado(cartas, ataque):
     return False
 
 def valor_maximo_defensa_en_atributos_dados(cartas, atributos):
-    result = []
     #Añade cartas a la lista "result" cuyo atributo sea igual a uno de los atributos dados
-    for carta in cartas:
-        if carta.Attribute in atributos:
-            result.append(carta)
+    result = [carta for carta in cartas if carta.Attribute in atributos]
     #De dicha lista, obtiene la carta que tenga la mayor defensa
     result = max(result, key=lambda at : at[6])
     #Devuelve la defensa, el nombre y el atributo de dicha carta
     return (result[6],result[0],result[4])
 
-def calcula_n_cartas_maximas_suertes_de_raza(cartas,raza):
-    result = []
+def calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3):
     #Añade a la lista "result" cartas cuya raza sea la misma que la dada
-    for carta in cartas:
-        if carta.Race == raza:
-            result.append(carta)
+    result = [carta for carta in cartas if carta.Race == raza]
     #Ordena las cartas de dicha lista de mayor a menor suerte
     result = sorted(result, key=lambda lc : lc[7], reverse=True)
-    #Devuelve la lista
-    return result
+    #Devuelve los n primeros elementos de la lista
+    return result[:n]
