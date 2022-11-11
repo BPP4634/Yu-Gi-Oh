@@ -51,9 +51,9 @@ def valor_maximo_defensa_en_atributos_dados(cartas, atributos):
     #Añade cartas a la lista "result" cuyo atributo sea igual a uno de los atributos dados
     result = [carta for carta in cartas if carta.Attribute in atributos]
     #De dicha lista, obtiene la carta que tenga la mayor defensa
-    result = max(result, key=lambda at : at[6])
+    maxd = max(result, key=lambda at : at[6])
     #Devuelve la defensa, el nombre y el atributo de dicha carta
-    return (result[6],result[0],result[4])
+    return [(r[6],r[0],r[4]) for r in result if r[6]==maxd[6]]
 
 def calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3):
     #Añade a la lista "result" cartas cuya raza sea la misma que la dada

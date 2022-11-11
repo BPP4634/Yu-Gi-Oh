@@ -5,6 +5,7 @@ def main():
       test_numero_de_atributos(CARTAS)
       test_existe_cartas_mayores_que_ataque_dado(CARTAS,4500)
       test_valor_maximo_defensa_en_atributos_dados(CARTAS, ['FIRE','WIND','WATER'])
+      test_valor_maximo_defensa_en_atributos_dados(CARTAS, ['DARK','WIND','EARTH'])
       test_calcula_n_cartas_maximas_suertes_de_raza(CARTAS,'Zombie',5)
 
 # Test de la función lee_cartas
@@ -28,8 +29,12 @@ def test_existe_cartas_mayores_que_ataque_dado(cartas, atk):
 # Test de la función valor_maximo_defensa_en_atributos_dados
 def test_valor_maximo_defensa_en_atributos_dados(cartas, atributos):
       vmdead = valor_maximo_defensa_en_atributos_dados(cartas, atributos)
-      print('El valor máximo de la defensa de una carta de los atributos propuestos es {}, de la carta {},\
- cuyo atributo es {}'.format(*vmdead))
+      if len(vmdead)==1:
+            print('El valor máximo de la defensa de una carta de los atributos propuestos es {}, de la carta\
+ {}, cuyo atributo es {}.'.format(*vmdead[0]))
+      else:
+            print(f'El valor máximo de la defensa de una carta de los atributos propuestos es {vmdead[0][0]}, de las\
+ cartas {[v[1] for v in vmdead]}, cuyos atributos son, respectivamente, {[v[2] for v in vmdead]}.')
 
 # Test de la función calcula_n_cartas_maximas_suertes_de_raza
 def test_calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n):
