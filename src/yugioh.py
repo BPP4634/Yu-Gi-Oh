@@ -34,9 +34,14 @@ def lee_cartas(archivo):
 def numero_de_atributos(cartas):
     #Se añade el atributo de cada carta a un conjunto llamado "atributos", de forma que no habrá elementos
     #repetidos en este
-    atributos= {carta.Attribute for carta in cartas}
+    atributos = {carta.Attribute for carta in cartas}
     #Como resultado, la función devuelve cuantos atributos hay y cuales son.
     return len(atributos),atributos
+
+def calcular_media_ataque_nivel(cartas,nivel=3):
+    #Se crea una lista con los valores de los ataques de las cartas cuyo nivel coincide con el dado.
+    #Como resultado, la función devuelve la media de dichos valores.
+    return media([c.ATK for c in cartas if c.Level==nivel])
 
 def existe_cartas_mayores_que_ataque_dado(cartas, ataque):
     #Se comprueba si existe alguna carta con un ataque mayor que el dado
@@ -51,14 +56,14 @@ def valor_maximo_defensa_en_atributos_dados(cartas, atributos):
     #Añade cartas a la lista "result" cuyo atributo sea igual a uno de los atributos dados
     result = [carta for carta in cartas if carta.Attribute in atributos]
     #De dicha lista, obtiene la carta que tenga la mayor defensa
-    maxd = max(result, key=lambda at : at[6])
+    maxd = max(result, key=lambda d : d.DEF)
     #Devuelve la defensa, el nombre y el atributo de dicha carta
-    return [(r[6],r[0],r[4]) for r in result if r[6]==maxd[6]]
+    return [(r.DEF,r.Name,r.Attribute) for r in result if r.DEF==maxd.DEF]
 
 def calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3):
     #Añade a la lista "result" cartas cuya raza sea la misma que la dada
     result = [carta for carta in cartas if carta.Race == raza]
     #Ordena las cartas de dicha lista de mayor a menor suerte
-    result = sorted(result, key=lambda lc : lc[7], reverse=True)
+    result = sorted(result, key=lambda lc : lc.LCK, reverse=True)
     #Devuelve los n primeros elementos de la lista
     return result[:n]

@@ -8,3 +8,6 @@ def stringear(cad):
     if cad == '':
         cad='NONE'
     return cad
+
+def media(valores):
+    return sum([v for v in valores])/len(valores)

@@ -3,6 +3,7 @@ from yugioh import *
 def main():
       CARTAS = test_lee_cartas('./data/card_data_FULL.csv')
       test_numero_de_atributos(CARTAS)
+      test_calcular_media_ataque_nivel(CARTAS,5)
       test_existe_cartas_mayores_que_ataque_dado(CARTAS,4500)
       test_valor_maximo_defensa_en_atributos_dados(CARTAS, ['FIRE','WIND','WATER'])
       test_valor_maximo_defensa_en_atributos_dados(CARTAS, ['DARK','WIND','EARTH'])
@@ -20,6 +21,11 @@ def test_lee_cartas(archivo):
 def test_numero_de_atributos(cartas):
       att = numero_de_atributos(cartas)
       print('Existen {} atributos, los cuales son: {}'.format(*att))
+
+# Test de la función calcular_media_ataque_nivel
+def test_calcular_media_ataque_nivel(cartas,n):
+      meat = calcular_media_ataque_nivel(cartas,n)
+      print(f'La media de ataque de las cartas de nivel {n} es {meat}.')
 
 # Test de la función existe_cartas_mayores_que_ataque_dado
 def test_existe_cartas_mayores_que_ataque_dado(cartas, atk):
@@ -39,7 +45,6 @@ def test_valor_maximo_defensa_en_atributos_dados(cartas, atributos):
 # Test de la función calcula_n_cartas_maximas_suertes_de_raza
 def test_calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n):
       cmsdr = calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n)
-      #'cmsdr' almacena todas las cartas, pero solo mostrará las 'n' primeras
       print(f'Las {n} cartas de raza {raza} con mas suerte son: {cmsdr}')
 
 if __name__ == '__main__':
