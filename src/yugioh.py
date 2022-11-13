@@ -6,17 +6,17 @@ from collections import namedtuple
 Carta = namedtuple('Carta','Name,Type,Level,Race,Attribute,ATK,DEF,LCK,Date,Rare')
 
 def lee_cartas(archivo):
-    #Creación de la lista que contendrá las tuplas con los datos de las cartas:
+    #Creación de la lista que contendrá las tuplas con los datos de las cartas
     cartas = []
-    #Se abre el archivo, con la codificación correcta:
+    #Se abre el archivo, con la codificación correcta
     with open(archivo, encoding='utf-8') as f:
-        #Las lineas del fichero se almacenan en 'lector' mediante la función 'csv.reader':
+        #Las lineas del fichero se almacenan en 'lector' mediante la función 'csv.reader'
         lector=csv.reader(f)
-        #Se salta la primera línea, la cual no contiene datos de ninguna carta:
+        #Se salta la primera línea, la cual no contiene datos de ninguna carta
         next(lector)
-        #Asignación de las variables de cada línea del fichero:
+        #Asignación de las variables de cada línea del fichero
         for nombre,tipo,nivel,raza,atributo,ataque,defensa,suerte,fecha,rareza in lector:
-            #Transformación de cada variable al tipo correcto:
+            #Transformación de cada variable al tipo correcto
             nivel = int_parser(nivel)
             atributo = string_parser(atributo)
             ataque = int_parser(ataque)
@@ -24,24 +24,23 @@ def lee_cartas(archivo):
             suerte = float(suerte)
             fecha = datetime.strptime(fecha,'%d/%m/%Y').date()
             rareza = bool(rareza=='True')
-            #Agrupación de las variables en la namedtuple definida:
+            #Agrupación de las variables en la namedtuple definida
             carta = Carta(nombre,tipo,nivel,raza,atributo,ataque,defensa,suerte,fecha,rareza)
-            #Se añade la tupla a la lista 'cartas':
+            #Se añade la tupla a la lista 'cartas'
             cartas.append(carta)
-        #Como resultado, la función devuelve dicha lista.
+        #Como resultado, la función devuelve dicha lista
         return cartas
 
 def numero_de_atributos(cartas):
     #Se añade el atributo de cada carta a un conjunto llamado "atributos", de forma que no habrá elementos
     #repetidos en este
     atributos = {carta.Attribute for carta in cartas}
-    #Como resultado, la función devuelve cuantos atributos hay y cuales son.
+    #Como resultado, la función devuelve cuantos atributos hay y cuales son
     return len(atributos),atributos
 
 def calcular_media_ataque_nivel(cartas,nivel=3):
     #Se crea una lista por comprensión con los valores de los ataques de las cartas cuyo nivel
-    #coincide con el dado.
-    #Como resultado, la función devuelve la media de dichos valores.
+    #coincide con el dado. Como resultado, la función devuelve la media de dichos valores
     return media([c.ATK for c in cartas if c.Level==nivel])
 
 def valor_maximo_defensa_en_atributos_dados(cartas, atributos):

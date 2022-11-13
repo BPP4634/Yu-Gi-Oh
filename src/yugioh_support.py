@@ -11,4 +11,4 @@ def string_parser(cad):
         return cad.capitalize()
 
 def media(valores):
-    return sum([v for v in valores])/len(valores)
+    return sum(valores)/len(valores)

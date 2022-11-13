@@ -35,8 +35,8 @@ def test_valor_maximo_defensa_en_atributos_dados(cartas, atributos):
             print('El valor máximo de la defensa de una carta de los atributos propuestos es {}, de la carta\
  {}, cuyo atributo es {}.'.format(*vmdead[0]))
       else:
-            print(f'El valor máximo de la defensa de una carta de los atributos propuestos es {vmdead[0][0]}, de las\
- cartas {[v[1] for v in vmdead]}, cuyos atributos son, respectivamente, {[v[2] for v in vmdead]}.')
+            print(f'El valor máximo de la defensa de una carta de los atributos propuestos es {vmdead[0][0]},\
+ de las cartas {[v[1] for v in vmdead]}, cuyos atributos son, respectivamente, {[v[2] for v in vmdead]}.')
 
 # Test de la función calcula_n_cartas_maximas_suertes_de_raza
 def test_calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3):

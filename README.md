@@ -1,5 +1,5 @@
-# Proyecto del Primer Cuatrimestre Fundamentos de Programación (Curso 21/22)
-Autor/a: Beatriz Gutiérrez Arazo   uvus: BPP4634
+# Proyecto del Primer Cuatrimestre Fundamentos de Programación (Curso 22/23)
+Autor/a: Beatriz Gutiérrez Arazo. UVUS: BPP4634
 
 El objetivo de este proyecto consiste en trabajar con un dataset sobre cartas de Yu-Gi-Oh (descargado de Kaggle en https://www.kaggle.com/datasets/tathor/yugioh-trading-cards-dataset). El dataset original constaba de 7 columnas: 4 con datos de tipo string y 3 con datos de tipo int. Por ello, han sido añadidas tres nuevas columnas, generadas de forma aleatoria: una de tipo float ("LCK"), otra de tipo datetime ("Release date") y otra de tipo boolean ("Rare").
 
@@ -36,7 +36,7 @@ Y los tipos de los campos son, respectivamente: string, string, int, string, str
 
 ## Funciones implementadas
 
-A continuación, se mostrarán las funciones implementadas al código, clasificadas según el módulo en el que aparecen.
+A continuación, se mostrarán las funciones implementadas al código, clasificadas según el módulo en el que aparecen y en que entrega fueran creadas.
 
 ### Módulo yugioh
 
@@ -46,7 +46,7 @@ A continuación, se mostrarán las funciones implementadas al código, clasifica
 * **numero_de_atributos(cartas)**: dada una lista de tuplas de tipo Carta, devuelve el número de atributos que existen y un conjunto que los contenga.
 * **calcular_media_ataque_nivel(cartas,nivel=3)**: dada una lista de tuplas de tipo Carta y un nivel, devuelve la media del ataque de las cartas del nivel indicado. Si no se indica el nivel, tomará el valor 3 por defecto. Esta función hace uso de 'media(valores)', localizada en el módulo 'yugioh_support.py'.
 * **valor_maximo_defensa_en_atributos_dados(cartas, atributos)**: dada una lista de tuplas de tipo Carta y una lista de atributos, devuelve el nombre de la/s carta/s con la mayor defensa, el valor de dicha defensa y su/s atributo/s.
-* **calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza,n=3)**: dada una lista de tuplas de tipo Cartas, una raza y un número "n", devuelve las n cartas con más suerte de la raza dada. Si no se introduce un número, "n" tomará por defecto el valor 10.
+* **calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3)**: dada una lista de tuplas de tipo Carta, una raza y un número "n", devuelve las n cartas con más suerte de la raza dada. Si no se introduce un número, "n" tomará por defecto el valor 3.
 
 ### Módulo yugioh_test
 
