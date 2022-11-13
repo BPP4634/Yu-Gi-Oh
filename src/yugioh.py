@@ -17,10 +17,10 @@ def lee_cartas(archivo):
         #Asignación de las variables de cada línea del fichero:
         for nombre,tipo,nivel,raza,atributo,ataque,defensa,suerte,fecha,rareza in lector:
             #Transformación de cada variable al tipo correcto:
-            nivel = intear(nivel)
-            atributo = stringear(atributo)
-            ataque = intear(ataque)
-            defensa = intear(defensa)
+            nivel = int_parser(nivel)
+            atributo = string_parser(atributo)
+            ataque = int_parser(ataque)
+            defensa = int_parser(defensa)
             suerte = float(suerte)
             fecha = datetime.strptime(fecha,'%d/%m/%Y').date()
             rareza = bool(rareza=='True')
@@ -38,8 +38,9 @@ def numero_de_atributos(cartas):
     #Como resultado, la función devuelve cuantos atributos hay y cuales son.
     return len(atributos),atributos
 
-def calcular_media_ataque_nivel(cartas,nivel):
-    #Se crea una lista con los valores de los ataques de las cartas cuyo nivel coincide con el dado.
+def calcular_media_ataque_nivel(cartas,nivel=3):
+    #Se crea una lista por comprensión con los valores de los ataques de las cartas cuyo nivel
+    #coincide con el dado.
     #Como resultado, la función devuelve la media de dichos valores.
     return media([c.ATK for c in cartas if c.Level==nivel])
 
@@ -48,10 +49,10 @@ def valor_maximo_defensa_en_atributos_dados(cartas, atributos):
     result = [carta for carta in cartas if carta.Attribute in atributos]
     #De dicha lista, obtiene la carta que tenga la mayor defensa
     maxd = max(result, key=lambda d : d.DEF)
-    #Devuelve la defensa, el nombre y el atributo de dicha carta
+    #Devuelve la defensa, el nombre y el atributo de la/s carta/s con dicha defensa
     return [(r.DEF,r.Name,r.Attribute) for r in result if r.DEF==maxd.DEF]
 
-def calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n):
+def calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3):
     #Añade a la lista "result" cartas cuya raza sea la misma que la dada
     result = [carta for carta in cartas if carta.Race == raza]
     #Ordena las cartas de dicha lista de mayor a menor suerte

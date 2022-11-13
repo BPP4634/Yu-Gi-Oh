@@ -14,7 +14,7 @@ El objetivo de este proyecto consiste en trabajar con un dataset sobre cartas de
   
 ## Estructura del *dataset*
 
-En el dataset, cada fila representan los datos de cada carta. Está compuesto por 9 columnas, con la siguiente descripción:
+En el dataset, cada fila representan los datos de cada carta. Está compuesto por 10 columnas, con la siguiente descripción:
 
 * **Name**: de tipo string, representa el nombre de la carta.
 * **Type**: de tipo string, representa el tipo de carta.
@@ -41,12 +41,12 @@ A continuación, se mostrarán las funciones implementadas al código, clasifica
 ### Módulo yugioh
 
 #### Entrega 1
-* **lee_cartas(archivo)**: lee los datos del dataset y devuelve una lista de tuplas conteniéndolos. Esta función hace uso de la función 'intear(num)' y 'stringear(cad)', las cuales se encuentran en el módulo 'yugioh_support.py'.
+* **lee_cartas(archivo)**: lee los datos del dataset y devuelve una lista de tuplas de tipo Carta conteniéndolos. Esta función hace uso de 'int_parser(num)' y 'string_parser(cad)', localizadas en el módulo 'yugioh_support.py'.
 #### Entrega 2
-* **numero_de_atributos(Cartas)**: dada una lista de tuplas de tipo Cartas, devuelve el número de atributos que existen y un conjunto que los contenga.
-* **calcular_media_ataque_nivel(cartas,nivel=3)**: dada una lista de tuplas de tipo Cartas, devuelve el valor de la media del ataque de las cartas del nivel indicado. Si no se indica el nivel, tomará el valor 3 por defecto. Esta función hace uso de la función 'media(valores)', la cual se encuentra en el módulo 'yugioh_support.py'.
-* **valor_maximo_defensa_en_atributos_dados(Cartas, atributos)**: dada una lista de tuplas de tipo Cartas y una lista de atributos, devuelve el nombre de la carta con la mayor defensa, el valor de dicha defensa y su atributo.
-* **calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza,n=10)**: dada una lista de tuplas de tipo Cartas, una raza y un número "n", devuelve las n cartas con más suerte de la raza dada. Si no se introduce un número, "n" tomará por defecto el valor 10.
+* **numero_de_atributos(cartas)**: dada una lista de tuplas de tipo Carta, devuelve el número de atributos que existen y un conjunto que los contenga.
+* **calcular_media_ataque_nivel(cartas,nivel=3)**: dada una lista de tuplas de tipo Carta y un nivel, devuelve la media del ataque de las cartas del nivel indicado. Si no se indica el nivel, tomará el valor 3 por defecto. Esta función hace uso de 'media(valores)', localizada en el módulo 'yugioh_support.py'.
+* **valor_maximo_defensa_en_atributos_dados(cartas, atributos)**: dada una lista de tuplas de tipo Carta y una lista de atributos, devuelve el nombre de la/s carta/s con la mayor defensa, el valor de dicha defensa y su/s atributo/s.
+* **calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza,n=3)**: dada una lista de tuplas de tipo Cartas, una raza y un número "n", devuelve las n cartas con más suerte de la raza dada. Si no se introduce un número, "n" tomará por defecto el valor 10.
 
 ### Módulo yugioh_test
 
@@ -54,16 +54,16 @@ A continuación, se mostrarán las funciones implementadas al código, clasifica
 * **main()**: función que invoca a todas las funciones que deban ser probadas:
   * **test_lee_cartas(archivo)**: test de la función 'lee_cartas(archivo)'.
 #### Entrega 2
-  * **test_numero_de_atributos(Cartas)**: test de la función 'numero_de_atributos(Cartas)'.
-  * **test_calcular_media_ataque_nivel(cartas,nivel)**: test de la función 'calcular_media_ataque_nivel(cartas,nivel)'.
-  * **test_valor_maximo_defensa_en_atributos_dados(Cartas, atributos)**: test de la función 'valor_maximo_defensa_en_atributos_dados(Cartas, atributos)'.
-  * **test_calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza,n)**: test de la función 'calcula_n_cartas_maximas_suertes_de_raza(Cartas,raza,n)'.
+  * **test_numero_de_atributos(cartas)**: test de la función 'numero_de_atributos(cartas)'.
+  * **test_calcular_media_ataque_nivel(cartas,nivel=3)**: test de la función 'calcular_media_ataque_nivel(cartas,nivel)'.
+  * **test_valor_maximo_defensa_en_atributos_dados(cartas, atributos)**: test de la función 'valor_maximo_defensa_en_atributos_dados(cartas, atributos)'.
+  * **test_calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3)**: test de la función 'calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n)'.
 
 ### Módulo yugioh_support
 
 Este módulo contiene funciones auxiliares (como, por ejemplo, parsers).
 #### Entrega 1
-* **intear(num)**: tras introducirse una cadena de caracteres, la transforma en un objeto de tipo int. En el caso de que la carta no disponga de dicho dato, le dará el valor "None".
+* **int_parser(num)**: tras introducirse una cadena de caracteres, la transforma en un objeto de tipo int. En el caso de que la carta no disponga de dicho dato, le dará el valor 0.
 #### Entrega 2
-* **stringear(cad)**: tras introducirse una cadena de caracteres, si esta es un espacio en blanco, le dará el valor 'NONE'. Es usada únicamente para los atributos, con el objetivo de evitar posibles errores en la ejecución de ciertas funciones.
+* **string_parser(cad)**: tras introducirse una cadena de caracteres, si esta es un espacio en blanco, le dará el valor 'None', y si no, la transforma dejando en mayúscula la primera letra y pasando a minúsculas todas las demás. Es usada únicamente para los atributos, con el objetivo de evitar posibles errores y confusiones en la ejecución de ciertas funciones.
 * **media(valores)**: tras introducirse una lista con números, la función calculará la media de estos y devolverá el resultado.

@@ -5,8 +5,8 @@ def main():
       test_numero_de_atributos(CARTAS)
       test_calcular_media_ataque_nivel(CARTAS,5)
       test_calcular_media_ataque_nivel(CARTAS)
-      test_valor_maximo_defensa_en_atributos_dados(CARTAS, ['FIRE','WIND','WATER'])
-      test_valor_maximo_defensa_en_atributos_dados(CARTAS, ['DARK','WIND','EARTH'])
+      test_valor_maximo_defensa_en_atributos_dados(CARTAS, ['Fire','Wind','Water'])
+      test_valor_maximo_defensa_en_atributos_dados(CARTAS, ['Dark','Earth'])
       test_calcula_n_cartas_maximas_suertes_de_raza(CARTAS,'Zombie',5)
       test_calcula_n_cartas_maximas_suertes_de_raza(CARTAS,'Warrior')
 
@@ -24,9 +24,9 @@ def test_numero_de_atributos(cartas):
       print('Existen {} atributos, los cuales son: {}'.format(*att))
 
 # Test de la función calcular_media_ataque_nivel
-def test_calcular_media_ataque_nivel(cartas,n=3):
-      meat = calcular_media_ataque_nivel(cartas,n)
-      print(f'La media de ataque de las cartas de nivel {n} es {meat}.')
+def test_calcular_media_ataque_nivel(cartas,nivel=3):
+      meat = calcular_media_ataque_nivel(cartas,nivel)
+      print(f'La media de ataque de las cartas de nivel {nivel} es {meat}.')
 
 # Test de la función valor_maximo_defensa_en_atributos_dados
 def test_valor_maximo_defensa_en_atributos_dados(cartas, atributos):
