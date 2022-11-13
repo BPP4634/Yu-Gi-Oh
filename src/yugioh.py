@@ -38,19 +38,10 @@ def numero_de_atributos(cartas):
     #Como resultado, la función devuelve cuantos atributos hay y cuales son.
     return len(atributos),atributos
 
-def calcular_media_ataque_nivel(cartas,nivel=3):
+def calcular_media_ataque_nivel(cartas,nivel):
     #Se crea una lista con los valores de los ataques de las cartas cuyo nivel coincide con el dado.
     #Como resultado, la función devuelve la media de dichos valores.
     return media([c.ATK for c in cartas if c.Level==nivel])
-
-def existe_cartas_mayores_que_ataque_dado(cartas, ataque):
-    #Se comprueba si existe alguna carta con un ataque mayor que el dado
-    for carta in cartas:
-        if carta.ATK > ataque:
-            #Devuelve True si existe
-            return True
-    #Devuelve False si ninguna carta tiene un ataque mayor que el dado
-    return False
 
 def valor_maximo_defensa_en_atributos_dados(cartas, atributos):
     #Añade cartas a la lista "result" cuyo atributo sea igual a uno de los atributos dados
@@ -60,7 +51,7 @@ def valor_maximo_defensa_en_atributos_dados(cartas, atributos):
     #Devuelve la defensa, el nombre y el atributo de dicha carta
     return [(r.DEF,r.Name,r.Attribute) for r in result if r.DEF==maxd.DEF]
 
-def calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3):
+def calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n):
     #Añade a la lista "result" cartas cuya raza sea la misma que la dada
     result = [carta for carta in cartas if carta.Race == raza]
     #Ordena las cartas de dicha lista de mayor a menor suerte

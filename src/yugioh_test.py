@@ -4,10 +4,11 @@ def main():
       CARTAS = test_lee_cartas('./data/card_data_FULL.csv')
       test_numero_de_atributos(CARTAS)
       test_calcular_media_ataque_nivel(CARTAS,5)
-      test_existe_cartas_mayores_que_ataque_dado(CARTAS,4500)
+      test_calcular_media_ataque_nivel(CARTAS)
       test_valor_maximo_defensa_en_atributos_dados(CARTAS, ['FIRE','WIND','WATER'])
       test_valor_maximo_defensa_en_atributos_dados(CARTAS, ['DARK','WIND','EARTH'])
       test_calcula_n_cartas_maximas_suertes_de_raza(CARTAS,'Zombie',5)
+      test_calcula_n_cartas_maximas_suertes_de_raza(CARTAS,'Warrior')
 
 # Test de la función lee_cartas
 def test_lee_cartas(archivo):
@@ -23,14 +24,9 @@ def test_numero_de_atributos(cartas):
       print('Existen {} atributos, los cuales son: {}'.format(*att))
 
 # Test de la función calcular_media_ataque_nivel
-def test_calcular_media_ataque_nivel(cartas,n):
+def test_calcular_media_ataque_nivel(cartas,n=3):
       meat = calcular_media_ataque_nivel(cartas,n)
       print(f'La media de ataque de las cartas de nivel {n} es {meat}.')
-
-# Test de la función existe_cartas_mayores_que_ataque_dado
-def test_existe_cartas_mayores_que_ataque_dado(cartas, atk):
-      tecmqad = existe_cartas_mayores_que_ataque_dado(cartas,atk)
-      print(f'¿Existen cartas con un ataque mayor que {atk}? {tecmqad}')
 
 # Test de la función valor_maximo_defensa_en_atributos_dados
 def test_valor_maximo_defensa_en_atributos_dados(cartas, atributos):
@@ -43,7 +39,7 @@ def test_valor_maximo_defensa_en_atributos_dados(cartas, atributos):
  cartas {[v[1] for v in vmdead]}, cuyos atributos son, respectivamente, {[v[2] for v in vmdead]}.')
 
 # Test de la función calcula_n_cartas_maximas_suertes_de_raza
-def test_calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n):
+def test_calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3):
       cmsdr = calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n)
       print(f'Las {n} cartas de raza {raza} con mas suerte son: {cmsdr}')
 
