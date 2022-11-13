@@ -43,13 +43,11 @@ def calcular_media_ataque_nivel(cartas,nivel=3):
     #coincide con el dado. Como resultado, la función devuelve la media de dichos valores
     return media([c.ATK for c in cartas if c.Level==nivel])
 
-def valor_maximo_defensa_en_atributos_dados(cartas, atributos):
-    #Añade cartas a la lista "result" cuyo atributo sea igual a uno de los atributos dados
-    result = [carta for carta in cartas if carta.Attribute in atributos]
-    #De dicha lista, obtiene la carta que tenga la mayor defensa
-    maxd = max(result, key=lambda d : d.DEF)
-    #Devuelve la defensa, el nombre y el atributo de la/s carta/s con dicha defensa
-    return [(r.DEF,r.Name,r.Attribute) for r in result if r.DEF==maxd.DEF]
+def valor_maximo_defensa(cartas):
+    #Obtiene la mayor defensa
+    maxd = max(cartas, key=lambda d : d.DEF).DEF
+    #Devuelve las cartas con dicha defensa
+    return [c for c in cartas if c.DEF==maxd]
 
 def calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3):
     #Añade a la lista "result" cartas cuya raza sea la misma que la dada

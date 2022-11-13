@@ -45,7 +45,7 @@ A continuación, se mostrarán las funciones implementadas al código, clasifica
 #### Entrega 2
 * **numero_de_atributos(cartas)**: dada una lista de tuplas de tipo Carta, devuelve el número de atributos que existen y un conjunto que los contenga.
 * **calcular_media_ataque_nivel(cartas,nivel=3)**: dada una lista de tuplas de tipo Carta y un nivel, devuelve la media del ataque de las cartas del nivel indicado. Si no se indica el nivel, tomará el valor 3 por defecto. Esta función hace uso de 'media(valores)', localizada en el módulo 'yugioh_support.py'.
-* **valor_maximo_defensa_en_atributos_dados(cartas, atributos)**: dada una lista de tuplas de tipo Carta y una lista de atributos, devuelve el nombre de la/s carta/s con la mayor defensa, el valor de dicha defensa y su/s atributo/s.
+* **valor_maximo_defensa(cartas)**: dada una lista de tuplas de tipo Carta, devuelve las cartas con el valor máximo de la defensa.
 * **calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3)**: dada una lista de tuplas de tipo Carta, una raza y un número "n", devuelve las n cartas con más suerte de la raza dada. Si no se introduce un número, "n" tomará por defecto el valor 3.
 
 ### Módulo yugioh_test
@@ -56,7 +56,7 @@ A continuación, se mostrarán las funciones implementadas al código, clasifica
 #### Entrega 2
   * **test_numero_de_atributos(cartas)**: test de la función 'numero_de_atributos(cartas)'.
   * **test_calcular_media_ataque_nivel(cartas,nivel=3)**: test de la función 'calcular_media_ataque_nivel(cartas,nivel)'.
-  * **test_valor_maximo_defensa_en_atributos_dados(cartas, atributos)**: test de la función 'valor_maximo_defensa_en_atributos_dados(cartas, atributos)'.
+  * **test_valor_maximo_defensa(cartas)**: test de la función 'valor_maximo_defensa(cartas)'.
   * **test_calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3)**: test de la función 'calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n)'.
 
 ### Módulo yugioh_support

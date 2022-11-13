@@ -5,8 +5,7 @@ def main():
       test_numero_de_atributos(CARTAS)
       test_calcular_media_ataque_nivel(CARTAS,5)
       test_calcular_media_ataque_nivel(CARTAS)
-      test_valor_maximo_defensa_en_atributos_dados(CARTAS, ['Fire','Wind','Water'])
-      test_valor_maximo_defensa_en_atributos_dados(CARTAS, ['Dark','Earth'])
+      test_valor_maximo_defensa(CARTAS)
       test_calcula_n_cartas_maximas_suertes_de_raza(CARTAS,'Zombie',5)
       test_calcula_n_cartas_maximas_suertes_de_raza(CARTAS,'Warrior')
 
@@ -28,15 +27,10 @@ def test_calcular_media_ataque_nivel(cartas,nivel=3):
       meat = calcular_media_ataque_nivel(cartas,nivel)
       print(f'La media de ataque de las cartas de nivel {nivel} es {meat}.')
 
-# Test de la función valor_maximo_defensa_en_atributos_dados
-def test_valor_maximo_defensa_en_atributos_dados(cartas, atributos):
-      vmdead = valor_maximo_defensa_en_atributos_dados(cartas, atributos)
-      if len(vmdead)==1:
-            print('El valor máximo de la defensa de una carta de los atributos propuestos es {}, de la carta\
- {}, cuyo atributo es {}.'.format(*vmdead[0]))
-      else:
-            print(f'El valor máximo de la defensa de una carta de los atributos propuestos es {vmdead[0][0]},\
- de las cartas {[v[1] for v in vmdead]}, cuyos atributos son, respectivamente, {[v[2] for v in vmdead]}.')
+# Test de la función valor_maximo_defensa
+def test_valor_maximo_defensa(cartas):
+      vmdead = valor_maximo_defensa(cartas)
+      print(f'El valor máximo de la defensa es {vmdead[0].DEF}, de las cartas: {vmdead}.')
 
 # Test de la función calcula_n_cartas_maximas_suertes_de_raza
 def test_calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3):
