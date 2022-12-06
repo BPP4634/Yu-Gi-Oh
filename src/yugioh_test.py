@@ -8,6 +8,13 @@ def main():
       test_valor_maximo_defensa(CARTAS)
       test_calcula_n_cartas_maximas_suertes_de_raza(CARTAS,'Zombie',5)
       test_calcula_n_cartas_maximas_suertes_de_raza(CARTAS,'Warrior')
+      test_contar_cartas_por_anyo(CARTAS)
+      test_min_cartas_anyo(CARTAS)
+      test_max_ataque_por_atributo(CARTAS)
+      test_cartas_mas_defensa_por_nivel(CARTAS,2)
+      test_cartas_mas_defensa_por_nivel(CARTAS)
+      test_agrupar_por_tipo(CARTAS,'Normal Tuner Monster')
+      grafica_cartas_por_anyo(CARTAS)
 
 # Test de la función lee_cartas
 def test_lee_cartas(archivo):
@@ -36,6 +43,37 @@ def test_valor_maximo_defensa(cartas):
 def test_calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3):
       cmsdr = calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n)
       print(f'Las {n} cartas de raza {raza} con mas suerte son: {cmsdr}')
+
+# Test de la función contar_cartas_por_anyo
+def test_contar_cartas_por_anyo(cartas):
+      cont = contar_cartas_por_anyo(cartas)
+      print('El número de cartas lanzadas cada año son:')
+      for c in cont.items():
+            print('En {}: {} cartas.'.format(*c))
+
+# Test de la función min_anyo
+def test_min_cartas_anyo(cartas):
+      mintip = min_cartas_anyo(cartas)
+      print('El año en el que se sacaron menos cartas fue en {}, siendo lanzadas solo {} cartas.'.format(*mintip))
+
+# Test de la función max_ataque_por_atributo
+def test_max_ataque_por_atributo(cartas):
+      maxat = max_ataque_por_atributo(cartas)
+      print('Las cartas con mayor ataque de cada atributo son:')
+      for m in maxat.items():
+            print('{}: {}.'.format(*m))
+
+# Test de la función cartas_mas_defensa_por_nivel
+def test_cartas_mas_defensa_por_nivel(cartas,n=3):
+      masnian=cartas_mas_defensa_por_nivel(cartas,n)
+      print('Las',n,'cartas con mayor defensa de cada nivel son:')
+      for m in masnian.items():
+            print('Nivel {}: {}.'.format(*m))
+
+# Test de la función agrupar_por_tipo
+def test_agrupar_por_tipo(cartas,tipo):
+      apt = agrupar_por_tipo(cartas)
+      print(f"Las cartas del tipo {tipo} son: {apt[tipo]}.")
 
 if __name__ == '__main__':
       main()

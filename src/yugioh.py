@@ -1,7 +1,8 @@
 from yugioh_support import *
 import csv
 from datetime import datetime
-from collections import namedtuple
+from collections import namedtuple,Counter,defaultdict
+from matplotlib import pyplot as plt
 
 Carta = namedtuple('Carta','Name,Type,Level,Race,Attribute,ATK,DEF,LCK,Date,Rare')
 
@@ -56,3 +57,59 @@ def calcula_n_cartas_maximas_suertes_de_raza(cartas,raza,n=3):
     result = sorted(result, key=lambda lc : lc.LCK, reverse=True)
     #Devuelve los n primeros elementos de la lista
     return result[:n]
+
+def contar_cartas_por_anyo(cartas):
+    #Crea una lista "anyos" formada por todos los años de lanzamiento de cartas
+    anyos=[c.Date.year for c in cartas]
+    #La función cuenta cuantas veces aparece cada año y devuelve el resultado (en orden cronológico)
+    return dict(sorted(Counter(anyos).items()))
+
+def min_cartas_anyo(cartas):
+    #La función devuelve el año en el que se han lanzado menos cartas y el número de estas.
+    #Para ello, busca el valor mínimo en el resultado de la función "contar_cartas_por_anyo"
+    return min(contar_cartas_por_anyo(cartas).items(),key=lambda x:x[1])
+
+def max_ataque_por_atributo(cartas):
+    #Se crea el diccionario "aux", un defaultdict de tipo lista, cuyas claves serán los atributos de las
+    #cartas y cuyos valores serán las cartas con el atributo de la clave
+    aux=defaultdict(list)
+    for c in cartas:
+        aux[c.Attribute].append(c)
+    #Se crea un diccionario cuyas claves son las de aux y cuyos valores son la carta con el ataque más alto
+    #entre todas las de su atributo. La función devuelve dicho diccionario
+    return {a:max(aux[a], key=lambda c:c.ATK) for a in aux}
+
+def cartas_mas_defensa_por_nivel(cartas,n=3):
+    #Se crea el diccionario "aux", un defaultdict de tipo lista, cuyas claves serán los niveles de las
+    #cartas y cuyos valores serán las cartas con el nivel de la clave.
+    #También creamos el diccionario vacío "result"
+    aux=defaultdict(list)
+    result={}
+    for c in cartas:
+        aux[c.Level].append(c)
+    #Ordenamos los niveles de menor a mayor para una mejor visualización del resultado
+    aux=dict(sorted(aux.items()))
+    #Se añaden a "result" las claves de "aux", siendo sus valores una lista de tuplas con los nombres y
+    #las defensas de las n cartas con las defensas más alta de entre todas las de su nivel
+    for a in aux:
+        result[a]=[(c.Name,c.DEF) for c in sorted(aux[a], key=lambda c:c.DEF, reverse=True)][:n]
+    #La función devuelve "result"
+    return result
+
+def agrupar_por_tipo(cartas):
+    #Se crea un defaultdict de tipo lista cuyas claves serán los tipos de cartas y cuyos valores serán las
+    #las cartas del tipo indicado en la clave
+    result=defaultdict(list)
+    for c in cartas:
+        result[c.Type]+=[c]
+    #La función devuelve dicho diccionario
+    return result
+
+def grafica_cartas_por_anyo(cartas):
+    #Usando el resultado de "contar_cartas_por_anyo", se toman de este las claves (años) para determinar la
+    #posición de los puntos en el eje x, y los valores (número de cartas por año) para determinar la posición
+    #en el eje y
+    data = contar_cartas_por_anyo(cartas)
+    plt.plot(data.keys(), data.values())
+    plt.title("Cartas lanzadas a lo largo de los años")
+    plt.show()
