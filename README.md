@@ -50,10 +50,10 @@ A continuación, se mostrarán las funciones implementadas al código, clasifica
 #### Entrega 3
 * **contar_cartas_por_anyo(cartas)**: dada una lista de tuplas de tipo Carta, devuelve un dicionario cuyas claves son los años de lanzamiento de las cartas y cuyos valores son el número de cartas lanzadas en dichos años.
 * **min_cartas_anyo(cartas)**: dada una lista de tuplas de tipo Carta, devuelve una tupla con el año en el que se lanzaron menos cartas y dicho número de cartas. Hace uso de la función "contar_cartas_por_anyo(cartas)".
-* **max_ataque_por_atributo(cartas)**: dada una lista de tuplas de tipo Carta, devuelve un diccionario cuyas claves son los atributos de las cartas y cuyos valores son la carta con más ataque del mismo atributo que el indicado en la clave.
+* **max_ataque_por_tipo(cartas)**: dada una lista de tuplas de tipo Carta, devuelve un diccionario cuyas claves son los tipos de las cartas y cuyos valores son la carta con más ataque del mismo tipo que el indicado en la clave.
 * **cartas_mas_defensa_por_nivel(cartas,n=3)**: dada una lista de tuplas de tipo Carta y un entero "n", devuelve un diccionario cuyas claves son los niveles de las cartas y cuyos valores son los nombres y las defensas de las n cartas con más defensa del mismo nivel que el indicado en la clave. Si no se introduce un número, "n" tomará por defecto el valor 3.
-* **agrupar_por_tipo(cartas)**: dada una lista de tuplas de tipo Carta, devuelve un diccionario cuyas claves son los tipos de cartas y cuyos valores son todas las cartas del tipo indicado en la clave.
-* **grafica_cartas_por_anyo(cartas)**: dada una lista de tuplas de tipo Carta, muestra una gráfica lineal en la que se representan el número de cartas lanzadas por año. Es una representación gráfica de la función "contar_cartas_por_anyo(cartas)".
+* **agrupar_por_rareza(cartas)**: dada una lista de tuplas de tipo Carta, devuelve un diccionario cuyas claves son la rareza de las cartas y cuyos valores son todas las cartas de la rareza indicada en la clave.
+* **grafica_cartas_por_anyo(cartas)**: dada una lista de tuplas de tipo Carta, muestra una gráfica lineal en la que se representan el número de cartas comunes y raras lanzadas por año, además del total. Representa graficamente la función "contar_cartas_por_anyo(cartas)".
 
 ### Módulo yugioh_test
 
@@ -68,9 +68,9 @@ A continuación, se mostrarán las funciones implementadas al código, clasifica
 #### Entrega 3
   * **test_contar_cartas_por_anyo(cartas)**: test de la función 'contar_cartas_por_anyo(cartas)'.
   * **test_min_cartas_anyo(cartas)**: test de la función 'min_cartas_anyo(cartas)'.
-  * **test_max_ataque_por_atributo(cartas)**: test de la función 'max_ataque_por_atributo(cartas)'.
+  * **test_max_ataque_por_tipo(cartas)**: test de la función 'max_ataque_por_tipo(cartas)'.
   * **test_cartas_mas_defensa_por_nivel(cartas,n=3)**: test de la función 'cartas_mas_defensa_por_nivel(cartas,n)'.
-  * **test_agrupar_por_tipo(cartas,tipo)**: test de la función 'agrupar_por_tipo(cartas)'. Para no mostrar todo el dataset, se ha añadido la segunda variable que indicará la clave del diccionario a mostrar.
+  * **test_agrupar_por_rareza(cartas,tipo,n=3)**: test de la función 'agrupar_por_rareza(cartas)'. Para no mostrar todo el dataset, se ha añadido la segunda variable que indicará la clave del diccionario a mostrar, y la tercera variable que indicará cuantos elementos mostrará de la lista del valor de la clave indicada.
   
   **grafica_cartas_por_anyo(cartas)** no devuelve un valor sino que muestra una gráfica, por lo que no es necesario crear un test para probarla, basta solo con invocarla.
 
@@ -80,5 +80,5 @@ Este módulo contiene funciones auxiliares (como, por ejemplo, parsers).
 #### Entrega 1
 * **int_parser(num)**: tras introducirse una cadena de caracteres, la transforma en un objeto de tipo int. En el caso de que la carta no disponga de dicho dato, le dará el valor 0.
 #### Entrega 2
-* **string_parser(cad)**: tras introducirse una cadena de caracteres, si esta es un espacio en blanco, le dará el valor 'None', y si no, la transforma dejando en mayúscula la primera letra y pasando a minúsculas todas las demás. Es usada únicamente para los atributos, con el objetivo de evitar posibles errores y confusiones en la ejecución de ciertas funciones.
+* **string_parser(cad)**: tras introducirse una cadena de caracteres, si esta es un espacio en blanco, le dará el valor 'None', y si no, la transforma dejando en mayúscula la primera letra y pasando a minúsculas todas las demás. Es usada únicamente para los atributos, con el objetivo de evitar posibles errores y confusiones en la ejecución de las funciones (por ejemplo, introducir "Fire" en vez de "FIRE" en un test).
 * **media(valores)**: tras introducirse una lista con números, la función calculará la media de estos y devolverá el resultado.

@@ -69,14 +69,14 @@ def min_cartas_anyo(cartas):
     #Para ello, busca el valor mínimo en el resultado de la función "contar_cartas_por_anyo"
     return min(contar_cartas_por_anyo(cartas).items(),key=lambda x:x[1])
 
-def max_ataque_por_atributo(cartas):
-    #Se crea el diccionario "aux", un defaultdict de tipo lista, cuyas claves serán los atributos de las
-    #cartas y cuyos valores serán las cartas con el atributo de la clave
+def max_ataque_por_tipo(cartas):
+    #Se crea el diccionario "aux", un defaultdict de tipo lista, cuyas claves serán los tipos de las
+    #cartas y cuyos valores serán las cartas con el tipo de la clave
     aux=defaultdict(list)
     for c in cartas:
-        aux[c.Attribute].append(c)
+        aux[c.Type].append(c)
     #Se crea un diccionario cuyas claves son las de aux y cuyos valores son la carta con el ataque más alto
-    #entre todas las de su atributo. La función devuelve dicho diccionario
+    #entre todas las de su tipo. La función devuelve dicho diccionario
     return {a:max(aux[a], key=lambda c:c.ATK) for a in aux}
 
 def cartas_mas_defensa_por_nivel(cartas,n=3):
@@ -96,20 +96,28 @@ def cartas_mas_defensa_por_nivel(cartas,n=3):
     #La función devuelve "result"
     return result
 
-def agrupar_por_tipo(cartas):
-    #Se crea un defaultdict de tipo lista cuyas claves serán los tipos de cartas y cuyos valores serán las
-    #las cartas del tipo indicado en la clave
+def agrupar_por_rareza(cartas):
+    #Se crea un defaultdict de tipo lista cuyas claves serán la rareza de cartas y cuyos valores serán las
+    #las cartas de la rareza indicada en la clave
     result=defaultdict(list)
     for c in cartas:
-        result[c.Type]+=[c]
+        result[c.Rare]+=[c]
     #La función devuelve dicho diccionario
     return result
 
 def grafica_cartas_por_anyo(cartas):
-    #Usando el resultado de "contar_cartas_por_anyo", se toman de este las claves (años) para determinar la
+    #Usando la función "agrupar_por_rareza", se obtiene una lista con todas las cartas raras y otra con todas
+    #las comunes a partir de la lista de cartas dada. Las tres se pasan individualmente por la función 
+    #"contar_cartas_por_anyo"
+    aux=agrupar_por_rareza(cartas)
+    carr,carc=aux[True],aux[False]
+    cart,carr,carc = contar_cartas_por_anyo(cartas),contar_cartas_por_anyo(carr),contar_cartas_por_anyo(carc)
+    #Usando los resultados de "contar_cartas_por_anyo", se toman las claves (años) para determinar la
     #posición de los puntos en el eje x, y los valores (número de cartas por año) para determinar la posición
     #en el eje y
-    data = contar_cartas_por_anyo(cartas)
-    plt.plot(data.keys(), data.values())
+    plt.plot(cart.keys(), cart.values(),'g',label='Todas')
+    plt.plot(carr.keys(), carr.values(),'r',label='Raras')
+    plt.plot(carc.keys(), carc.values(),'b',label='Comunes')
     plt.title("Cartas lanzadas a lo largo de los años")
+    plt.legend()
     plt.show()

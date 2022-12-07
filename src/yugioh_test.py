@@ -10,10 +10,10 @@ def main():
       test_calcula_n_cartas_maximas_suertes_de_raza(CARTAS,'Warrior')
       test_contar_cartas_por_anyo(CARTAS)
       test_min_cartas_anyo(CARTAS)
-      test_max_ataque_por_atributo(CARTAS)
+      test_max_ataque_por_tipo(CARTAS)
       test_cartas_mas_defensa_por_nivel(CARTAS,2)
       test_cartas_mas_defensa_por_nivel(CARTAS)
-      test_agrupar_por_tipo(CARTAS,'Normal Tuner Monster')
+      test_agrupar_por_rareza(CARTAS,False)
       grafica_cartas_por_anyo(CARTAS)
 
 # Test de la función lee_cartas
@@ -56,10 +56,10 @@ def test_min_cartas_anyo(cartas):
       mintip = min_cartas_anyo(cartas)
       print('El año en el que se sacaron menos cartas fue en {}, siendo lanzadas solo {} cartas.'.format(*mintip))
 
-# Test de la función max_ataque_por_atributo
-def test_max_ataque_por_atributo(cartas):
-      maxat = max_ataque_por_atributo(cartas)
-      print('Las cartas con mayor ataque de cada atributo son:')
+# Test de la función max_ataque_por_tipo
+def test_max_ataque_por_tipo(cartas):
+      maxat = max_ataque_por_tipo(cartas)
+      print('Las cartas con mayor ataque de cada tipo son:')
       for m in maxat.items():
             print('{}: {}.'.format(*m))
 
@@ -70,10 +70,13 @@ def test_cartas_mas_defensa_por_nivel(cartas,n=3):
       for m in masnian.items():
             print('Nivel {}: {}.'.format(*m))
 
-# Test de la función agrupar_por_tipo
-def test_agrupar_por_tipo(cartas,tipo):
-      apt = agrupar_por_tipo(cartas)
-      print(f"Las cartas del tipo {tipo} son: {apt[tipo]}.")
+# Test de la función agrupar_por_rareza
+def test_agrupar_por_rareza(cartas,rar=True,n=3):
+      apr = agrupar_por_rareza(cartas)
+      if rar==True:
+            print(f"Mostrando {n} cartas raras: {apr[rar][:n]}.")
+      else:
+            print(f"Mostrando {n} cartas comunes: {apr[rar][:n]}.")
 
 if __name__ == '__main__':
       main()
