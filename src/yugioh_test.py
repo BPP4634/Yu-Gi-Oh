@@ -13,7 +13,8 @@ def main():
       test_max_ataque_por_tipo(CARTAS)
       test_cartas_mas_defensa_por_nivel(CARTAS,2)
       test_cartas_mas_defensa_por_nivel(CARTAS)
-      test_agrupar_por_rareza(CARTAS,False)
+      test_agrupar_por_rareza(CARTAS,False,5)
+      test_agrupar_por_rareza(CARTAS)
       grafica_cartas_por_anyo(CARTAS)
 
 # Test de la función lee_cartas
@@ -51,7 +52,7 @@ def test_contar_cartas_por_anyo(cartas):
       for c in cont.items():
             print('En {}: {} cartas.'.format(*c))
 
-# Test de la función min_anyo
+# Test de la función min_cartas_anyo
 def test_min_cartas_anyo(cartas):
       mintip = min_cartas_anyo(cartas)
       print('El año en el que se sacaron menos cartas fue en {}, siendo lanzadas solo {} cartas.'.format(*mintip))
@@ -61,22 +62,22 @@ def test_max_ataque_por_tipo(cartas):
       maxat = max_ataque_por_tipo(cartas)
       print('Las cartas con mayor ataque de cada tipo son:')
       for m in maxat.items():
-            print('{}: {}.'.format(*m))
+            print('{}: {}'.format(*m))
 
 # Test de la función cartas_mas_defensa_por_nivel
 def test_cartas_mas_defensa_por_nivel(cartas,n=3):
       masnian=cartas_mas_defensa_por_nivel(cartas,n)
       print('Las',n,'cartas con mayor defensa de cada nivel son:')
       for m in masnian.items():
-            print('Nivel {}: {}.'.format(*m))
+            print('Nivel {}: {}'.format(*m))
 
 # Test de la función agrupar_por_rareza
 def test_agrupar_por_rareza(cartas,rar=True,n=3):
       apr = agrupar_por_rareza(cartas)
       if rar==True:
-            print(f"Mostrando {n} cartas raras: {apr[rar][:n]}.")
+            print(f"Mostrando {n} cartas raras: {apr[rar][:n]}")
       else:
-            print(f"Mostrando {n} cartas comunes: {apr[rar][:n]}.")
+            print(f"Mostrando {n} cartas comunes: {apr[rar][:n]}")
 
 if __name__ == '__main__':
       main()
